@@ -101,16 +101,16 @@ public static class Recursion
   /// </summary>
   public static decimal CountWaysToClimb(int s, Dictionary<int, decimal>? remember = null)
   {
-        if (remember == null)
+    if (remember == null)
       remember = new Dictionary<int, decimal>();
-      // Base Cases
-      remember[0] = 0;
-      remember[1] = 1;
-      remember[2] = 2;
-      remember[3] = 4;
+    // Base Cases
+    remember[0] = 0;
+    remember[1] = 1;
+    remember[2] = 2;
+    remember[3] = 4;
     if (s < 0) return 0;
     if (remember.ContainsKey(s))
-        return remember[s];
+      return remember[s];
     decimal ways = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2, remember) + CountWaysToClimb(s - 3, remember);
     remember[s] = ways;
     return ways;
@@ -133,8 +133,8 @@ public static class Recursion
   {
     if (!pattern.Contains("*"))
     {
-        results.Add(pattern);
-        return;
+      results.Add(pattern);
+      return;
     }
 
     int starSpot = pattern.IndexOf("*");
